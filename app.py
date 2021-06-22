@@ -11,8 +11,8 @@ import csv, re, operator
 app = Flask(__name__)
 
 person = {
-    'first_name': 'Nohossat',
-    'last_name' : 'TRAORE',
+    'first_name': 'Shiyu',
+    'last_name' : 'Feng',
     'address' : '9 rue Léon Giraud · PARIS · FRANCE',
     'job': 'Web developer',
     'tel': '0678282923',
