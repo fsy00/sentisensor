@@ -13,7 +13,7 @@ app = Flask(__name__)
 person = {
     'first_name': 'Shiyu',
     'last_name' : 'Feng',
-    'address' : '9 rue Léon Giraud · PARIS · FRANCE',
+    'address' : 'China',
     'job': 'Web developer',
     'tel': '0678282923',
     'email': 'nohossat.tra@yahoo.com',
