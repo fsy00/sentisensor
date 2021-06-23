@@ -59,6 +59,7 @@
       		<li>job</li>
       		<li>address</li>
       	</ul>
+				
         <ul class="list-content ">
         	<li>{{ person.tel }}</li> <!-- YOUR PHONE NUMBER  -->
         	<li>{{ person.email }}</li> <!-- YOUR EMAIL -->
@@ -66,9 +67,11 @@
         	<li>{{ person.address }}</li> <!-- YOUR STATE AND COUNTRY  -->
         </ul>
       </div>
+			
       <div class="contact-presentation"> <!-- YOUR PRESENTATION RESUME  -->
       	<p><span class="bold">简介</span> 本人性格开朗、为人诚恳、乐观向上、兴趣广泛、拥有较强的组织能力和适应能力、并具有较强的管理策划与组织管理协调能力.</p>
       </div>
+			
       <div class="contact-social clearfix">
       	<ul class="list-titles">
       		<li>Twitter</li>
@@ -82,8 +85,11 @@
       	</ul>
       </div>
 		</div>
+		  <div>
+		<p><a href="{{url_for('index')}}" target="_blank">近期作品</a></p>
+		</div>
 	</section>
-  
+
   <section class="experience section-padding">
   	<div class="container">
   		<h3 class="experience-title">Experience</h3>
