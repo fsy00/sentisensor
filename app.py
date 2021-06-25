@@ -108,16 +108,132 @@ def cb():
    
 @app.route('/chart')
 def index():
-	return render_template('chartsajax.html',  graphJSON=gm())
+	return render_template('chartsajax.html',  graphJSON=gm(),graphJSON1=gm1(),graphJSON2=gm2(),graphJSON3=gm3(),graphJSON4=gm4(),graphJSON5=gm5(),graphJSON6=gm6(),graphJSON7=gm7(),graphJSON8=gm8(),graphJSON9=gm9(),graphJSON10=gm10(),graphJSON11=gm11(),graphJSON12=gm12())
 
 def gm(country='United Kingdom'):
-	df = pd.DataFrame(px.data.gapminder())
+    #1.人均寿命折线图
+    df = px.data.gapminder()
+    fig = px.line(df[df['country'] == country], x="year", y="gdpPercap")
 
-	fig = px.line(df[df['country']==country], x="year", y="lifeExp")
-    #fig = px.line(df[df['country'] == country], x="year", y="gdpPercap")
-	graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    
-	return graphJSON
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON
+
+
+def gm1():
+    iris = px.data.iris()
+
+    fig=px.scatter(iris, x='sepal_width', y='sepal_length',
+               color='species', marginal_y='histogram',
+               marginal_x='box', trendline='ols')
+
+    graphJSON1 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON1
+
+
+def gm2():
+    iris = px.data.iris()
+    fig = px.scatter(iris, x='sepal_length', y='sepal_width')
+    graphJSON2 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON2
+
+
+def gm3():
+    iris = px.data.iris()
+    fig = px.scatter_matrix(iris, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"],
+                                               color="species")
+    graphJSON3 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON3
+
+
+def gm4():
+    gapminder = px.data.gapminder()
+
+    fig = px.scatter(gapminder,x="gdpPercap",y="lifeExp",size="pop",size_max=60,color="continent",hover_name="country",animation_frame="year",animation_group="country",log_x=True,range_x=[100,100000],range_y=[25,90],labels=dict(pop="Population",gdpPercap="GDP per Capita",lifeExp="Life Expectancy"))
+    graphJSON4 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON4
+
+
+def gm5():
+    iris = px.data.iris()
+    fig = px.density_heatmap(iris, x='sepal_width', y='sepal_length')
+
+    graphJSON5 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON5
+
+
+def gm6():
+    tips = px.data.tips()
+    fig = px.scatter(tips, x="total_bill", y="tip", facet_row="time", facet_col="day", color="smoker", trendline="ols",
+                     category_orders={"day": ["Thur", "Fri", "Sat", "Sun"], "time": ["Lunch", "Dinner"]})
+    graphJSON6 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON6
+
+
+def gm7():
+    gapminder = px.data.gapminder()
+
+    fig = px.scatter(gapminder.query('year==2007'), x='gdpPercap', y='lifeExp', size='pop', color='continent',
+                     hover_name='country', log_x=True, size_max=60)
+
+    graphJSON7 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON7
+
+
+def gm8():
+    gapminder = px.data.gapminder()
+    fig = px.scatter(gapminder, x="gdpPercap", y="lifeExp", animation_frame="year", animation_group="country",
+                     size="pop", color="continent", hover_name="country", facet_col="continent", log_x=True,
+                     size_max=45, range_x=[100, 100000], range_y=[25, 90])
+    graphJSON8 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON8
+
+
+def gm9():
+    gapminder = px.data.gapminder()
+    fig = px.scatter_geo(gapminder, locations="iso_alpha", color="continent", hover_name="country", size="pop",
+                         animation_frame="year", projection="natural earth")
+    graphJSON9 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON9
+
+
+def gm10():
+    gapminder = px.data.gapminder()
+    fig = px.choropleth(gapminder, locations="iso_alpha", color="lifeExp", hover_name="country", animation_frame="year",
+                        range_color=[20, 80])
+    graphJSON10 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON10
+
+
+def gm11():
+    election = px.data.election()
+    fig = px.scatter_3d(election, x="Joly", y="Coderre", z="Bergeron", color="winner", size="total",
+                        hover_name="district",
+                        symbol="result", color_discrete_map={"Joly": "blue", "Bergeron": "green", "Coderre": "red"})
+    graphJSON11 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON11
+
+
+def gm12():
+    election = px.data.election()
+    fig = px.scatter_ternary(election, a="Joly", b="Coderre", c="Bergeron", color="winner", size="total",
+                             hover_name="district", size_max=15,
+                             color_discrete_map={"Joly": "blue", "Bergeron": "green", "Coderre": "red"})
+    graphJSON12 = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+    return graphJSON12
+
 
 
 @app.route('/senti')

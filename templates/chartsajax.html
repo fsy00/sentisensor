@@ -19,19 +19,123 @@
 
 
 </head>
+<!-- 1.-->
 
+<!--
 <body style="font-family:arial, sans-serif">
-   <!-- <h1>1952-2007年的各国GDP可视化或寿命</h1> -->
+
     <h1>1952-2007年的各国人均预期寿命</h1>
     <h2>输入国家如：India或China（大写字母开头）</h2>
     
     <input type="text" id="fname" name="fname" onchange="cb(this.value)">
     <div id="chart" class="chart"></div>
+</body> 
+
+-->
+
+<body style="font-family:arial, sans-serif">
+	<!-- 折线图 -->
+   <h2>1952-2007年的各国人均GDP</h2>
+ <!-- 散点图 -->
+    <h3>输入国家如：India或China（大写字母开头）</h3>
+   
+    <input type="text" id="fname" name="fname" onchange="cb(this.value)">
+	
+    <div id="chart" class="chart"></div>
+	  <h2>iris鸢尾属植物数据集</h2>
+	  <p>该数据集测量了所有150个样本的4个特征，分别是：<br/>
+	  sepal length（花萼长度）<br/>
+	  sepal width（花萼宽度）<br/>
+	  petal length（花瓣长度）<br/>
+	  petal width（花瓣宽度）<br/>
+	  以上四个特征的单位都是厘米（cm）。<br/>
+	  m表示样本量的大小，n表示每个样本所具有的特征数。因此在该数据集中，m=150,n=4</p>
+	<h2>Plotly 生态系统的一部分</h2>
+	<p>Plotly Express 之于 Plotly.py 类似 Seaborn 之于 matplotlib：<br/>
+	Plotly Express 是一个高级封装库，允许您快速创建图表，然后使用底层 API 和生态系统的强大功能进行修改。<br/>
+	对于Plotly 生态系统，这意味着一旦您使用 Plotly Express 创建了一个图形，您就可以使用Themes，使用 FigureWidgets 进行命令性编辑，使用 Orca 将其导出为几乎任何文件格式，或者在我们的 GUI JupyterLab 图表编辑器中编辑它 。
+主题（Themes）允许您控制图形范围的设置，如边距、字体、背景颜色、刻度定位等。<br/>
+您可以使用模板参数应用任何命名的主题或主题对象：</p>
+	<div id="chart1" class="chart"></div>
+	<h3>有三个内置的 Plotly 主题可以使用， 分别是 plotly， plotlywhite 和 plotlydark
+px 输出继承自 Plotly.py 的 Figure 类 ExpressFigure 的对象，这意味着你可以使用任何 Figure 的访问器和方法来改变 px生成的绘图。例如，您可以将 .update（） 调用链接到 px 调用以更改图例设置并添加注释。 .update（） 现在返回修改后的数字，所以你仍然可以在一个很长的 Python 语句中执行此操作：</h3>
+	<div id="chart2" class="chart"></div>
+	<h3>用一行 Python 代码进行交互式多维可视化
+我们特别为我们的交互式多维图表感到自豪，例如散点图矩阵（SPLOMS）、平行坐标和我们称之为并行类别的并行集。通过这些，您可以在单个图中可视化整个数据集以进行数据探索。在你的Jupyter 笔记本中查看这些单行及其启用的交互：</h3>
+	<div id="chart3" class="chart"></div>
+	<h3>也许你不仅仅对 2007年 感兴趣，而且你想看看这张图表是如何随着时间的推移而演变的。 可以通过设置 animation_frame =“year” （以及 animation_group =“country” 来标识哪些圆与控制条中的年份匹配）来设置动画。 在这个最终版本中，让我们在这里调整一些显示，因为像“gdpPercap” 这样的文本有点难看，即使它是我们的数据框列的名称。 我们可以提供更漂亮的“标签” （labels），可以在整个图表、图例、标题轴和悬停（hovers）中应用。 我们还可以手动设置边界，以便动画在整个过程中看起来更棒：</h3>
+	<div id="chart4" class="chart"></div>
+	<h3>首先我们来讲关于区域着色的方式, 我们使用choropleth来进行绘制. 数据还是使用上面的例子的数据, 比如下面的例子要展示各个地区的人均寿命和时间的关系上面有几个参数需要注意一下:<br/>
+	locations: 这个是接受国家每个国家的ISO3代码的, 也就是China就是CHN, 我们下面会解释如何进行转换.<br/>
+	projection: 这个是可以选择地图的类型, 我觉得世界地图还是下面这种比较好看.<br/>
+	最终的效果如下所示, 蓝色表示人均寿命较高, 可以看到随着年份的推移, 世界的整体形势是在变好的:
+	<br/></h3><h3>因为这是地理数据，我们也可以将其表示为动画地图，因此这清楚地表明 Plotly Express 不仅仅可以绘制散点图（不过这个数据集缺少前苏联的数据）。</h3>
+	<div id="chart10" class="chart"></div>
+	
+	<h1>线图</h1>
+	<h3>热图是指用热谱图展示用户在网站上的行为。浏览量大、点击量大的地方呈红色，浏览量小、点击量少的地方呈无色、蓝色。常见热图共有点击热图、注意力热图、分析热图、对比热图、分享热图、浮层热图和历史热图等七种。</h3>
+	<div id="chart5" class="chart"></div>
+	<h1>散点图</h1>
+	<h3>在周四到周日四天中午餐和晚餐的图</h3>
+	<div id="chart6" class="chart"></div>
+	<h1>散点图</h1>
+	<h3>人均寿命</h3>
+	<div id="chart7" class="chart"></div>
+	<h1>散点图</h1>
+	<h3>人均寿命</h3>
+	<div id="chart8" class="chart"></div>
+	<h1>气泡地图</h1>
+	<h3>人均寿命</h3>
+	<div id="chart9" class="chart"></div>
+	
+	<h1>3D</h1>
+	<div id="chart11" class="chart"></div>
+	<h1>三元坐标系</h1>
+	<div id="chart12" class="chart"></div>
+	
 </body>
 
 <script>
     d = {{ graphJSON | safe }};
     Plotly.newPlot('chart', d, {});
+	
+	 d1 = {{ graphJSON1 | safe }};
+	Plotly.newPlot('chart1', d1, {});
+	
+	d2 = {{ graphJSON2 | safe }};
+	Plotly.newPlot('chart2', d2, {});
+	
+	d3 = {{ graphJSON3 | safe }};
+	Plotly.newPlot('chart3', d3, {});
+	
+	d4 = {{ graphJSON4 | safe }};
+	Plotly.newPlot('chart4', d4, {});
+	
+	d5 = {{ graphJSON5 | safe }};
+	Plotly.newPlot('chart5', d5, {});
+	
+	d6 = {{ graphJSON6 | safe }};
+	Plotly.newPlot('chart6', d6, {});
+	
+	d7 = {{ graphJSON7 | safe }};
+	Plotly.newPlot('chart7', d7, {});
+	
+	d8 = {{ graphJSON8 | safe }};
+	Plotly.newPlot('chart8', d8, {});
+	
+	d9 = {{ graphJSON9 | safe }};
+	Plotly.newPlot('chart9', d9, {});
+	
+	d10 = {{ graphJSON10 | safe }};
+	Plotly.newPlot('chart10', d10, {});
+	
+	d11 = {{ graphJSON11 | safe }};
+	Plotly.newPlot('chart11', d11, {});
+	
+	d12 = {{ graphJSON12 | safe }};
+	Plotly.newPlot('chart12', d12, {});
+	
+
 </script>
 
 
